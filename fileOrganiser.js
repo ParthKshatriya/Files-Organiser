@@ -1,21 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 
-const mainPath = "C:\\Users\\hp\\Documents\\Document";
+const mainPath = "C:\\Users\\hp\\Documents\\Document"; // Replace with your path
 
 const pdfPath = "C:\\Users\\hp\\Documents\\Document\\PDF";
 const txtPath = "C:\\Users\\hp\\Documents\\Document\\TXT";
 const docxPath = "C:\\Users\\hp\\Documents\\Document\\DOCX";
 const jpegPath = "C:\\Users\\hp\\Documents\\Document\\JPEG";
 const xlsxPath = "C:\\Users\\hp\\Documents\\Document\\XLSX";
-
-// fs.readdir(mainPath, (err, files) => {
-//   if (err) {
-//     console.error("Error reading directory:", err);
-//     return;
-//   }
-//   console.log(files);
-// });
+const xlsxPath = "C:\\Users\\hp\\Documents\\Document\\XLSX";
 
 // Function to create only Folders
 function createFolder(folderName, path) {
@@ -36,6 +29,7 @@ createFolder("DOCX", docxPath);
 createFolder("JPEG", jpegPath);
 createFolder("XLSX", xlsxPath);
 
+// Function to Move files according to its extension
 function moveItems(extension, folderPath) {
   fs.readdir(mainPath, (err, files) => {
     files.forEach((file) => {
@@ -52,6 +46,8 @@ function moveItems(extension, folderPath) {
     console.log("All files arranged");
   });
 }
+
+// Moved files to its Folder
 moveItems(".pdf", pdfPath);
 moveItems(".txt", txtPath);
 moveItems(".docx", docxPath);
